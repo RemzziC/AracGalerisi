@@ -1,0 +1,149 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="AraçGalerisi.Site1" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>Remzi Cakir</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 820px; /* 10px boşluklar için toplam genişlik ayarlandı */
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .logo, .header, .panel, .icerik, .footer {
+            margin: 5px; /* 10px toplam boşluk için her tarafa 5px margin */
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            float: left;
+            background-color: #4169e1;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Logonun boyutunu kapsayacak şekilde ayarlar */
+        }
+
+        .header {
+            width: 690px; /* 700px genişlik - 10px boşluk */
+            height: 100px;
+            float: left;
+            background-color: #4169e1;
+            background-image: url("https://i.hizliresim.com/1ke22w6.jpg");
+            background-color: #00ff00;
+            background-size: 100% 100px;
+            background-position: center;
+        }
+
+        .panel {
+            width: 100px;
+            height: 400px;
+            float: left;
+            background-color: #808080;
+            background-image: url("https://i.hizliresim.com/n68y9bi.jpg");
+            background-color: #00ff00;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .icerik {
+            width: 690px; /* 700px genişlik - 10px boşluk */
+            height: 400px;
+            float: left;
+            background-image: url("https://i.hizliresim.com/n7t6k7t.jpg");
+            background-color: #00ff00;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .footer {
+            width: 800px;
+            height: 20px;
+            clear: both;
+            background-color: #808080;
+        }
+        .saydamArkaPlan {
+            background-color: rgba(255,255,255,0.75); /* Beyaz renk, %50 saydamlık */
+            font-size: 16px;
+            font-family: "Times New Roman", Times, serif;
+            font-weight: bold;
+        }
+        .saydamArkaPlan2 {
+            background-color: rgba(255,255,255,0.75);
+            font-size: 16px;
+            font-family: "Times New Roman", Times, serif;
+            font-weight: bold;
+        }
+        .saydamArkaPlan3 {
+            background-color: rgba(255,255,255,0.35);
+            font-weight: bold;
+        }
+        .saydamArkaPlan4 {
+            font-family: "Times New Roman", Times, serif;
+        }
+        .saydamArkaPlan5 {
+            background-color: rgba(255,255,255,0.45);
+            font-family: "Times New Roman", Times, serif;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .headerLabel {
+            text-align: center; /* Metni ortalar */
+            line-height: 100px; /* Metnin dikey hizalamasını sağlar (header yüksekliği ile aynı olmalı) */
+            font-family: Arial, Helvetica, sans-serif; /* Temiz ve okunaklı bir font */
+            font-size: 24px; /* Başlık için uygun bir yazı boyutu */
+        }
+
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container">
+
+            <div class="logo">
+                <img src="https://i.hizliresim.com/dn5obh5.jpg"/>
+            </div>
+
+            <div class="header">
+                <div id="headerLabel" class="headerLabel">
+                    <asp:Label ID="lblHeader" runat="server" Text="Remzi Ç Galerisi" CssClass="saydamArkaPlan3"></asp:Label>
+                </div>
+            </div>
+
+            <div class="panel">
+                <asp:DataList ID="DataList1" runat="server" Height="400px" Width="100px" >
+                    <ItemTemplate>
+                        &nbsp;&nbsp;
+                        <asp:Label ID="Label1" runat="server" CssClass="saydamArkaPlan5" Text='<%# Eval("Kategori") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:DataList>
+            </div>
+
+            <div class="icerik">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    <%--<img src="https://i.hizliresim.com/n7t6k7t.jpg"/>--%>
+                </asp:ContentPlaceHolder>
+            </div>
+            <div class="footer">
+                &nbsp;&nbsp;<asp:Label ID="Label2" runat="server" Text="Copyright © 2023-2024 Remzi Çakır 224442004" CssClass="saydamArkaPlan4"></asp:Label>
+            </div>
+
+        </div>
+    </form>
+</body>
+</html>
